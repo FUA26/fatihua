@@ -10,18 +10,23 @@
     "postinstall": "fumadocs-mdx"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.1.1",
     "@types/mdx": "^2.0.13",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "fumadocs-core": "^14.6.2",
     "fumadocs-mdx": "^11.1.2",
+    "fumadocs-typescript": "^3.0.2",
     "fumadocs-ui": "^14.6.2",
     "lucide-react": "^0.468.0",
     "next": "15.1.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "scroll-into-view-if-needed": "^3.1.0",
+    "shiki": "^1.24.3",
     "tailwind-merge": "^2.5.5",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "ts-morph": "^24.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
