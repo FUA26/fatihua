@@ -9,11 +9,7 @@ import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
  */
 export const baseOptions: BaseLayoutProps = {
   nav: {
-    title: (
-      <span className=" dark:text-black">
-        FUA24
-      </span>
-    ),
+    title: <span className=" dark:text-black">FUA24</span>,
   },
   links: [
     {
@@ -28,3 +24,23 @@ export const baseOptions: BaseLayoutProps = {
     },
   ],
 };
+
+export const mainNav = [
+  {
+    name: "Helo_",
+    path: "/",
+  },
+  {
+    name: "Project",
+    path: "/project",
+  },
+
+  {
+    name: "Blog",
+    path: "/blog",
+  },
+  {
+    name: "About",
+    path: "/about",
+  },
+];
