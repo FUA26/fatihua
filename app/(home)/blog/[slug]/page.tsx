@@ -10,6 +10,8 @@ export default async function page(props: {
   const params = await props.params;
   const page = blog.getPage([params.slug]);
 
+  console.log(page)
+
   if (!page) notFound();
   return (
     <>

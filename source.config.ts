@@ -5,6 +5,11 @@ export const docs = defineCollections({
   dir: "content/docs",
 });
 
+export const project = defineCollections({
+  type: "doc",
+  dir: "content/project",
+});
+
 export const meta = defineCollections({
   type: "meta",
   dir: "content/docs",

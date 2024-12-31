@@ -3,16 +3,18 @@ import React from "react";
 import { format } from "date-fns";
 
 import { CalendarIcon, TimerIcon } from "@radix-ui/react-icons";
-import Image from "../common/NextImage";
+import Image from "./NextImage";
+
 
 type Props = {
   post: PostMeta;
+  link: string;
 };
 
-export default function NoteCard({ post }: Props) {
+export default function BlogCard({ post, link }: Props) {
   return (
     <>
-      <Link href={`/blog/${post.slug}`}>
+      <Link href={link}>
         <article className="h-full overflow-hidden rounded-lg shadow transition hover:shadow-lg dark:shadow-gray-700/25">
           <Image
             alt="Office"
@@ -31,9 +33,9 @@ export default function NoteCard({ post }: Props) {
                 <CalendarIcon />{" "}
                 {format(new Date(post.publishedAt), "MMMM dd, yyyy")}
               </div>
-              <div className="  flex items-center gap-1">
+              {/* <div className="  flex items-center gap-1">
                 <TimerIcon /> {post.readingTime.text}
-              </div>
+              </div> */}
             </div>
 
             <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-500 dark:text-gray-400">

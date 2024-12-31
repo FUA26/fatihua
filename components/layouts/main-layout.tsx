@@ -5,6 +5,7 @@ import { useState } from "react";
 import { X } from "lucide-react";
 import { ModeToggle } from "./theme-toggle";
 import { mainNav } from "@/configs/layout.config";
+import Link from "next/link";
 
 function NavBar() {
   const [menu, setMenu] = useState(false);
@@ -17,10 +18,13 @@ function NavBar() {
       {/* DESKTOP */}
       <div className=" hidden lg:block animate-in fade-in zoom-in p-4 backdrop-blur-md bg-background/70">
         <div className="flex justify-between mx-4 items-center">
-          <div className="flex gap-2">
-            <img src="/images/logo.svg" alt="logo" className="h-6" />
-            <p className="font-semibold">FatihUA</p>
-          </div>
+          <Link href="/">
+            <div className="flex gap-2">
+              <img src="/images/logo.svg" alt="logo" className="h-6" />
+              <p className="font-semibold">FatihUA</p>
+
+            </div>
+          </Link>
 
           <div className="flex gap-[20px] xl:gap-[50px] text-[16px] items-center select-none">
             {mainNav.map((item, index) => (
@@ -47,15 +51,17 @@ function NavBar() {
       </div>
       {/* MOBILE */}
       <div
-        className={` block lg:hidden shadow-sm  fixed top-0 w-full z-[999] bg-white py-4 animate-in fade-in zoom-in  ${
-          menu ? " bg-primary py-2" : ""
-        } `}
+        className={` block lg:hidden shadow-sm  fixed top-0 w-full z-[999]  py-4 animate-in fade-in zoom-in backdrop-blur-md bg-background/7  ${menu ? " bg-white dark:bg-black py-2" : ""
+          } `}
       >
         <div className="flex justify-between mx-[10px]">
+          <Link href="/">
           <div className="flex gap-[50px] text-[16px] items-center select-none">
             <img src="/images/logo.svg" alt="logo" className="h-6" />
           </div>
-          <div className="flex items-center gap-[40px]">
+          </Link>
+          <div className="flex items-center gap-[20px]">
+          <ModeToggle />
             {menu ? (
               <X
                 className="cursor-pointer animate-in fade-in zoom-in text-black"

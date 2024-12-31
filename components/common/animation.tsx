@@ -93,7 +93,7 @@ export function CreateAppAnimation() {
           <div className="size-2 rounded-full bg-yellow-600" />
         </div>
         <div className="min-h-[200px] bg-gradient-to-b from-fd-secondary [mask-image:linear-gradient(to_bottom,white,transparent)]">
-          <code className="grid p-4">{lines}</code>
+          <code className="grid p-4 text-left">{lines}</code>
         </div>
       </pre>
     </div>
