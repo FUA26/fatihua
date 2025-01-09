@@ -1,11 +1,14 @@
 import "@/styles/globals.css";
 import 'pliny/search/algolia.css'
 import 'remark-github-blockquote-alert/alert.css'
-
+import { SearchProvider, SearchConfig } from 'pliny/search'
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/layout/theme-provider";
-import siteMetadata from "@/config/siteMetadata";
+
+import SectionContainer from "@/components/common/SectionContainer";
+import siteMetadata from "config/siteMetadata";
+import Header from "@/components/layout/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -42,7 +45,15 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <SectionContainer>
+            <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
+              <Header />
+              <div className="px-4 xl:px-12">
+                <main className="mb-auto">{children}</main>
+              </div>
+            </SearchProvider>
+            {/* <Footer /> */}
+          </SectionContainer>
         </ThemeProvider>
 
       </body>
