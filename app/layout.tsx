@@ -6,6 +6,7 @@ import { Header } from "@/components/header/main-header";
 import sayHello from "@/components/header/say-hello";
 import { sayHelloFlag } from "@/constants/env";
 import { SITE_METADATA } from "@/config/site-metadata";
+import { Container } from "@/components/ui/container";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
   description: SITE_METADATA.description,
 };
 
-let saidHello = sayHelloFlag;
+let saidHello = !sayHelloFlag;
 
 export default function RootLayout({
   children,
@@ -69,7 +70,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          <main className="mb-auto grow">{children}</main>
+          <Container>
+            <main className="px-2 md:px-6">{children}</main>
+          </Container>
         </ThemeProvider>
       </body>
     </html>
