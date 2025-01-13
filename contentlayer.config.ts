@@ -13,19 +13,19 @@ import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 import { remarkAlert } from 'remark-github-blockquote-alert'
 import remarkMath from 'remark-math'
-import { SITE_METADATA } from './config/site-metadata'
 import { allCoreContent } from './lib/contentlayer'
 import { sortPosts } from './lib/mdx'
 import { remarkCodeTitles } from './lib/remark-code-titles'
 import { remarkExtractFrontmatter } from './lib/remark-extract-frontmatter'
 import { remarkImgToJsx } from './lib/remark-img-to-jsx'
 import { extractTocHeadings } from './lib/remark-toc-headings'
+import { SITE_METADATA } from './config/site-metadata'
 
-const root = process.cwd()
-const isProduction = process.env.NODE_ENV === 'production'
+let root = process.cwd()
+let isProduction = process.env.NODE_ENV === 'production'
 
 // heroicon mini link
-const icon = fromHtmlIsomorphic(
+let icon = fromHtmlIsomorphic(
   `
     <span class="content-header-link">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 linkicon">
@@ -37,7 +37,7 @@ const icon = fromHtmlIsomorphic(
   { fragment: true }
 )
 
-const computedFields: ComputedFields = {
+let computedFields: ComputedFields = {
   readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
   slug: {
     type: 'string',
@@ -58,11 +58,11 @@ const computedFields: ComputedFields = {
  * Count the occurrences of all tags across blog posts and write to json file
  */
 function createTagCount(documents) {
-  const tagCount: Record<string, number> = {}
+  let tagCount: Record<string, number> = {}
   documents.forEach((file) => {
     if (file.tags && (!isProduction || file.draft !== true)) {
       file.tags.forEach((tag: string) => {
-        const formattedTag = slug(tag)
+        let formattedTag = slug(tag)
         if (formattedTag in tagCount) {
           tagCount[formattedTag] += 1
         } else {
@@ -76,7 +76,7 @@ function createTagCount(documents) {
 }
 
 function createSearchIndex(allBlogs) {
-  const searchDocsPath = SITE_METADATA.search.kbarConfigs.searchDocumentsPath
+  let searchDocsPath = SITE_METADATA.search.kbarConfigs.searchDocumentsPath
   if (searchDocsPath) {
     writeFileSync(
       `public/${path.basename(searchDocsPath)}`,
@@ -86,7 +86,7 @@ function createSearchIndex(allBlogs) {
   }
 }
 
-export const Blog = defineDocumentType(() => ({
+export let Blog = defineDocumentType(() => ({
   name: 'Blog',
   filePathPattern: 'blog/**/*.mdx',
   contentType: 'mdx',
@@ -114,14 +114,14 @@ export const Blog = defineDocumentType(() => ({
         datePublished: doc.date,
         dateModified: doc.lastmod || doc.date,
         description: doc.summary,
-        image: doc.images && doc.images.length > 0 ? doc.images[0] : '',
+        image: doc.images ? doc.images[0] : SITE_METADATA.socialBanner,
         url: `${SITE_METADATA.siteUrl}/${doc._raw.flattenedPath}`,
       }),
     },
   },
 }))
 
-export const Snippet = defineDocumentType(() => ({
+export let Snippet = defineDocumentType(() => ({
   name: 'Snippet',
   filePathPattern: 'snippets/**/*.mdx',
   contentType: 'mdx',
@@ -151,14 +151,14 @@ export const Snippet = defineDocumentType(() => ({
         datePublished: doc.date,
         dateModified: doc.lastmod || doc.date,
         description: doc.summary,
-        image: doc.images && doc.images.length > 0 ? doc.images[0] : '',
+        image: doc.images ? doc.images[0] : SITE_METADATA.socialBanner,
         url: `${SITE_METADATA.siteUrl}/${doc._raw.flattenedPath}`,
       }),
     },
   },
 }))
 
-export const Author = defineDocumentType(() => ({
+export let Author = defineDocumentType(() => ({
   name: 'Author',
   filePathPattern: 'authors/**/*.mdx',
   contentType: 'mdx',
@@ -178,7 +178,7 @@ export const Author = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: 'contents',
-  documentTypes: [Blog, Author],
+  documentTypes: [Blog, Snippet, Author],
   mdx: {
     cwd: process.cwd(),
     remarkPlugins: [
@@ -217,8 +217,8 @@ export default makeSource({
     ],
   },
   onSuccess: async (importData) => {
-    const { allBlogs } = await importData()
-    const allPosts = [...allBlogs]
+    let { allBlogs, allSnippets } = await importData()
+    let allPosts = [...allBlogs, ...allSnippets]
     createTagCount(allPosts)
     createSearchIndex(allPosts)
     console.log('✨ Content source generated successfully!')

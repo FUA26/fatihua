@@ -17,6 +17,57 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      keyframes: {
+        wiggle: {
+          '0%': { transform: 'rotate(0deg)' },
+          '50%': { transform: 'rotate(180deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+        'music-bar-1': {
+          '0%, 100%': { height: '0%' },
+          '50%': { height: '70%' },
+        },
+        'music-bar-2': {
+          '0%, 100%': { height: '50%' },
+          '25%': { height: '0%' },
+          '75%': { height: '100%' },
+        },
+        'music-bar-3': {
+          '0%, 100%': { height: '70%' },
+          '15%': { height: '100%' },
+          '65%': { height: '0%' },
+        },
+        'music-bar-4': {
+          '0%, 100%': { height: '50%' },
+          '35.7%': { height: '0%' },
+          '85.7%': { height: '70%' },
+        },
+        'scale-up': {
+          '0%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.18)' },
+          '100%': { transform: 'scale(1)' },
+        },
+      },
+      animation: {
+        wiggle: 'wiggle 7s linear infinite',
+        'music-bar-1': 'music-bar-1 .8s linear infinite',
+        'music-bar-2': 'music-bar-2 .8s linear infinite',
+        'music-bar-3': 'music-bar-3 .8s linear infinite',
+        'music-bar-4': 'music-bar-4 .8s linear infinite',
+        'scale-up': 'scale-up 150ms ease-in-out forwards',
+      },
+      boxShadow: {
+        demure: 'rgba(0, 0, 0, 0.3) 0 35px 60px -15px',
+        'book-pages': `10px 40px 40px -10px #00000030, inset -2px 0 0 gray,
+                        inset -3px 0 0 #dbdbdb, inset -4px 0 0 white, inset -5px 0 0 #dbdbdb,
+                        inset -6px 0 0 white, inset -7px 0 0 #dbdbdb, inset -8px 0 0 white,
+                        inset -9px 0 0 #dbdbdb`,
+        mondegreen: `5px 5px rgba(0, 98, 90, 0.4),
+                      10px 10px rgba(0, 98, 90, 0.3),
+                      15px 15px rgba(0, 98, 90, 0.2),
+                      20px 20px rgba(0, 98, 90, 0.1),
+                      25px 25px rgba(0, 98, 90, 0.05)`,
+      },
       lineHeight: {
         11: '2.75rem',
         12: '3rem',
@@ -31,7 +82,7 @@ export default {
         foreground: "hsl(var(--foreground))",
         gray: colors.gray,
         primary: {
-          ...colors.yellow,
+          ...colors.red,
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
         },
@@ -59,6 +110,7 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        'solarized-light': '#fdfaf6',
         'github-dark-dimmed': '#22272e',
         'code-block': '#36313d',
       },
@@ -67,8 +119,23 @@ export default {
         md: `calc(var(--radius) - 2px)`,
         sm: "calc(var(--radius) - 4px)",
       },
-    },
-    typography: ({ theme }) => ({
+      width: {
+        4.5: '1.125rem',
+        5.5: '1.375rem',
+      },
+      height: {
+        4.5: '1.125rem',
+        5.5: '1.375rem',
+      },
+      spacing: {
+        15: '3.75rem',
+      },
+      zIndex: {
+        60: '60',
+        70: '70',
+        80: '80',
+      },
+      typography: ({ theme }) => ({
         DEFAULT: {
           css: {
             a: {
@@ -236,7 +303,8 @@ export default {
             },
           },
         },
-      }),
+      })
+    },
   },
   plugins: [forms, typography, animate],
 } satisfies Config;
