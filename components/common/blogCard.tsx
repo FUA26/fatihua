@@ -6,10 +6,10 @@ import { CalendarIcon, TimerIcon } from "@radix-ui/react-icons";
 import { format } from "date-fns";
 import { Image } from "../ui/image";
 
-export default function BlogCard({ post, link }) {
+export default function BlogCard({ post }) {
   return (
     <>
-      <Link href={link}>
+      <Link href={post.path}>
         <article className="h-full overflow-hidden rounded-lg shadow transition hover:shadow-lg dark:shadow-gray-700/25">
           <Image
             alt="Office"

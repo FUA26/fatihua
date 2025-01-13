@@ -5,6 +5,9 @@ import type { ImageProps as NextImageProps } from "next/image";
 import NextImage from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import ReactMediumImageZoom, {
+  type UncontrolledProps,
+} from "react-medium-image-zoom";
 
 const loadedImages: string[] = [];
 
@@ -56,5 +59,27 @@ export function Image(props: ImageProps) {
         {...rest}
       />
     </div>
+  );
+}
+
+interface ZoomProps extends UncontrolledProps {
+  children: React.ReactNode;
+}
+
+export function Zoom(props: ZoomProps) {
+  let { children, classDialog, ...rest } = props;
+  return (
+    <ReactMediumImageZoom
+      zoomMargin={20}
+      classDialog={clsx([
+        "[&_[data-rmiz-modal-img]]:rounded-lg",
+        "[&_[data-rmiz-btn-unzoom]]:hidden",
+        '[&_[data-rmiz-modal-overlay="visible"]]:bg-black/80',
+        classDialog,
+      ])}
+      {...rest}
+    >
+      {children}
+    </ReactMediumImageZoom>
   );
 }

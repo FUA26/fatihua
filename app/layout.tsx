@@ -1,6 +1,10 @@
+import "@/styles/globals.css";
+import "react-medium-image-zoom/dist/styles.css";
+import "remark-github-blockquote-alert/alert.css";
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "@/styles/globals.css";
+
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { Header } from "@/components/header/main-header";
 import sayHello from "@/components/header/say-hello";

@@ -9,6 +9,7 @@ export const SITE_METADATA = {
   siteUrl: 'https://www.fatihua.my.id',
   siteRepo: 'https://github.com/FUA26/fatihua',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
+  socialBanner: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   email: 'fatihua@gmail.com',
   github: 'https://github.com/FUA26',
   x: 'https://x.com/ascodenote',
@@ -18,4 +19,10 @@ export const SITE_METADATA = {
   instagram: 'https://www.instagram.com/fatihulil',
   locale: 'en-US',
   stickyNav: true,
+  search: {
+    kbarConfigs: {
+      // path to load documents to search
+      searchDocumentsPath: `${process.env.BASE_PATH || ''}/search.json`,
+    },
+  },
 }
