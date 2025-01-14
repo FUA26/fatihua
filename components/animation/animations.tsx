@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 
 export function CreateAppAnimation() {
-  const installCmd = "npm create fumadocs-app";
+  const installCmd = "fua create magic-app";
   const tickTime = 100;
   const timeCommandEnter = installCmd.length;
   const timeCommandRun = timeCommandEnter + 3;
@@ -54,24 +54,27 @@ export function CreateAppAnimation() {
   if (tick > timeCommandRun)
     lines.push(
       <Fragment key="command_response">
-        <span className="font-bold">┌ Create Fumadocs App</span>
+        <span className="font-bold">┌ Create Impactful Solutions 🪄</span>
         <span>│</span>
         {tick > timeCommandRun + 1 && (
           <>
-            <span className="font-bold">◇ Project name</span>
-            <span>│ my-app</span>
+            {/* <span className="font-bold">◇ Project name</span> */}
+            <span>│ ○ add Passion 🤩</span>
+            <span>│</span>
           </>
         )}
         {tick > timeCommandRun + 2 && (
           <>
+            <span>│ ○ add Innovation 🧠</span>
             <span>│</span>
-            <span className="font-bold">◆ Choose a content source</span>
+            {/* <span className="font-bold">◆ Choose a content source</span> */}
           </>
         )}
         {tick > timeCommandRun + 3 && (
           <>
-            <span>│ ● Fumadocs MDX</span>
-            <span>│ ○ Content Collections</span>
+            {/* <span>│ ● Fumadocs MDX</span> */}
+            <span>│ ○ add Efficiency 🌟</span>
+            <span>│</span>
           </>
         )}
       </Fragment>
@@ -87,16 +90,24 @@ export function CreateAppAnimation() {
       }}
     >
       {tick > timeWindowOpen && (
-        <LaunchAppWindow className="animate-in fade-in slide-in-from-top-10 absolute bottom-5 right-4 z-10" />
+        <LaunchAppWindow className="animate-in fade-in slide-in-from-top-10 absolute bottom-5 right-4 z-10 w-1/2" />
       )}
       <pre className="overflow-hidden rounded-xl border text-xs">
-        <div className="flex flex-row items-center gap-2 border-b px-4 py-2">
-          <TerminalIcon className="size-4" />{" "}
-          <span className="font-bold">Terminal</span>
-          <div className="grow" />
-          <div className="size-2 rounded-full bg-red-400" />
+        <div className="flex flex-row items-center justify-between gap-2 border-b px-4 py-2 bg-gray-200 dark:text-black">
+          
+          {/* <div className="grow" /> */}
+          <div className="flex gap-1">
+            <div className="size-2 rounded-full bg-gray-400" />
+            <div className="size-2 rounded-full bg-green-400" />
+            <div className="size-2 rounded-full bg-red-400" />
+          </div>
+          <div className="flex">
+            <TerminalIcon className="size-4" />{" "}
+            <span className="font-bold">Terminal</span>
+          </div>
+          <div className=" w-12"></div>
         </div>
-        <div className="from-fd-secondary min-h-[200px] bg-gradient-to-b [mask-image:linear-gradient(to_bottom,white,transparent)]">
+        <div className="from-fd-secondary min-h-[200px] bg-gradient-to-b [mask-image:linear-gradient(to_bottom,white,transparent)] text-left">
           <code className="grid p-4">{lines}</code>
         </div>
       </pre>
@@ -111,269 +122,24 @@ function LaunchAppWindow(
     <div
       {...props}
       className={cn(
-        "bg-fd-background overflow-hidden rounded-md border shadow-xl",
+        " bg-background overflow-hidden rounded-md border shadow-xl",
         props.className
       )}
     >
-      <div className="bg-fd-muted text-fd-muted-foreground relative flex h-6 flex-row items-center border-b px-4 text-xs">
-        <p className="absolute inset-x-0 text-center">localhost:3000</p>
+      <div className="relative flex h-6 flex-row items-center border-b px-4 text-xs bg-gray-200 dark:text-black">
+        {/* <p className="absolute inset-x-0 text-center">localhost:3000</p>
+         */}
+         <div className="flex gap-1">
+            <div className="size-2 rounded-full bg-gray-400" />
+            <div className="size-2 rounded-full bg-green-400" />
+            <div className="size-2 rounded-full bg-red-400" />
+          </div>
+          <div className=" w-12"></div>
       </div>
-      <div className="p-4 text-sm">New App launched!</div>
-    </div>
-  );
-}
-
-export function WhyInteractive(props: {
-  codeblockTheme: ReactNode;
-  codeblockSearchRouter: ReactNode;
-  codeblockInteractive: ReactNode;
-  typeTable: ReactNode;
-  codeblockMdx: ReactNode;
-}) {
-  const [autoActive, setAutoActive] = useState(true);
-  const [active, setActive] = useState(0);
-  const duration = 1000 * 8;
-  const items = [
-    "Full-text Search",
-    "Design System & Tailwind CSS",
-    "Generate from TypeScript & OpenAPI",
-    "Interactive Examples",
-    "Automation & Server",
-    "Flexible",
-  ];
-
-  useEffect(() => {
-    if (!autoActive) return;
-    const timer = setTimeout(() => {
-      setActive((prev) => (prev + 1) % items.length);
-    }, duration);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [active, autoActive, duration, items.length]);
-
-  return (
-    <div
-      id="why-interactive"
-      className="bg-fd-muted/50 -mx-6 mt-8 flex flex-col gap-4 rounded-lg border border-foreground/10 p-4 shadow-lg lg:flex-row lg:gap-6 lg:p-6"
-    >
-      <div className="-mt-1.5 flex flex-row overflow-x-auto max-lg:-mx-4 max-lg:items-center max-lg:px-2 lg:-ml-4 lg:flex-col">
-        {items.map((item, i) => (
-          <button
-            key={item}
-            ref={(element) => {
-              if (!element || i !== active) return;
-
-              scrollIntoView(element, {
-                behavior: "smooth",
-                boundary: document.getElementById("why-interactive"),
-              });
-            }}
-            type="button"
-            className={cn(
-              "inline-flex flex-col-reverse text-nowrap rounded-lg py-1.5 text-left text-sm font-medium text-muted-foreground transition-colors max-lg:px-2 lg:flex-row",
-              i === active
-                ? "text-primary max-lg:bg-primary/10"
-                : "hover:text-accent-foreground/80",
-              i === active && autoActive ? "" : "max-lg:pb-2.5 lg:pl-3"
-            )}
-            onClick={() => {
-              if (active === i) setAutoActive((prev) => !prev);
-              else {
-                setAutoActive(false);
-                setActive(i);
-              }
-            }}
-          >
-            {i === active && autoActive ? (
-              <div
-                className="bg-primary animate-[why-interactive-x] rounded-lg max-lg:h-1 lg:mr-2 lg:w-1 lg:animate-[why-interactive-y]"
-                style={{
-                  animationDuration: `${duration.toString()}ms`,
-                  animationFillMode: "forwards",
-                }}
-              />
-            ) : null}
-            {item}
-          </button>
-        ))}
+      <div className="p-4 text-sm flex flex-col items-center">
+        <span className=" text-2xl">🎉</span>
+        <h1 className=" text-xl lg:text-2xl font-semibold">The Magic Happens!</h1>
       </div>
-      <style>
-        {`
-        @keyframes why-interactive-x {
-          from {
-            width: 0px;
-          }
-          
-          to {
-            width: 100%;
-          }
-        }
-        
-        @keyframes why-interactive-y {
-          from {
-            height: 0px;
-          }
-          
-          to {
-            height: 100%;
-          }
-        }`}
-      </style>
-
-      <div className="flex-1">
-        {active === 0 ? (
-          <WhyPanel>
-            <h3 className="mb-2 text-lg font-semibold">
-              Implementing search is difficult, we made it simple.
-            </h3>
-            <p>
-              Fumadocs offers native support for <b>Orama</b> and{" "}
-              <b>Algolia Search</b>, it is as easy as plugging a route handler.
-            </p>
-            {props.codeblockSearchRouter}
-            <p className="mb-4 text-muted-foreground">
-              In addition, you can plug your own search modal to allow full
-              control over the search UI.
-            </p>
-            <div className="flex flex-row items-center gap-1.5">
-              <Link
-                href="/docs/headless/search"
-                className={cn(buttonVariants({ variant: "outline" }))}
-              >
-                Check the docs
-              </Link>
-              <Link
-                href="/docs/ui/search"
-                className={cn(buttonVariants({ variant: "ghost" }))}
-              >
-                Customise UI?
-              </Link>
-            </div>
-          </WhyPanel>
-        ) : null}
-
-        {active === 1 ? (
-          <WhyPanel>
-            <h3 className="mb-2 text-lg font-semibold">Tailwind CSS Plugin</h3>
-            <p>
-              Share the same design system cross the docs and your app with
-              Tailwind CSS. Works great with <b>Shadcn UI</b>.
-            </p>
-            {props.codeblockTheme}
-            <Link
-              href="/docs/ui/theme"
-              className={cn(buttonVariants({ variant: "outline" }))}
-            >
-              See Themes
-            </Link>
-          </WhyPanel>
-        ) : null}
-
-        {active === 2 ? (
-          <WhyPanel>
-            <h3 className="mb-2 text-lg font-semibold">
-              From the source of truth, never repeat yourself again.
-            </h3>
-            <p>
-              Fumadocs has a smart Type Table component that renders the
-              properties of interface/type automatically, powered by the
-              TypeScript Compiler API.
-            </p>
-            {props.typeTable}
-            <p>
-              We also have a built-in OpenAPI playground and docs generator.
-            </p>
-
-            <div className="mt-4 flex flex-row items-center gap-1.5">
-              <Link
-                href="/docs/ui/components/auto-type-table"
-                className={cn(buttonVariants({ variant: "outline" }))}
-              >
-                Type Table
-              </Link>
-              <Link
-                href="/docs/ui/openapi"
-                className={cn(buttonVariants({ variant: "ghost" }))}
-              >
-                OpenAPI Integration
-              </Link>
-            </div>
-          </WhyPanel>
-        ) : null}
-        {active === 3 ? (
-          <WhyPanel>
-            <h3 className="mb-2 text-lg font-semibold">
-              Interactive docs with React.
-            </h3>
-            <p>
-              Fumadocs offers many useful components, from File Tree, Tabs, to
-              Zoomable Image.
-            </p>
-            {props.codeblockInteractive}
-            <Link
-              href="/docs/ui/components"
-              className={cn(buttonVariants({ variant: "outline" }))}
-            >
-              View Components
-            </Link>
-          </WhyPanel>
-        ) : null}
-        {active === 4 ? (
-          <WhyPanel>
-            <h3 className="mb-2 text-lg font-semibold">
-              Connect your content and server.
-            </h3>
-
-            <p>
-              React Server Component made it very easy to automate docs. Use
-              server data, server components, and even client components in MDX
-              documents.
-            </p>
-
-            {props.codeblockMdx}
-          </WhyPanel>
-        ) : null}
-        {active === 5 ? (
-          <WhyPanel>
-            <h3 className="mb-2 text-lg font-semibold">
-              Your own content source, search solution, everything.
-            </h3>
-            <p>
-              Fumadocs is designed to be flexible, working with any content
-              sources, offering powerful utilities.
-              <br />
-              <br />
-              With our remark plugins, you can parse documents into search
-              indexes, and integrate with different search solutions seamlessly.
-            </p>
-
-            <Link
-              href="/docs/headless/mdx/structure"
-              className={cn(
-                buttonVariants({ className: "mt-4", variant: "outline" })
-              )}
-            >
-              See MDX Plugins
-            </Link>
-          </WhyPanel>
-        ) : null}
-      </div>
-    </div>
-  );
-}
-
-function WhyPanel(props: HTMLProps<HTMLDivElement>) {
-  return (
-    <div
-      {...props}
-      className={cn(
-        "animate-in fade-in slide-in-from-bottom-8 duration-700",
-        props.className
-      )}
-    >
-      {props.children}
     </div>
   );
 }
