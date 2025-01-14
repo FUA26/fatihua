@@ -4,7 +4,6 @@ import { Link } from "@/components/ui/link";
 import { CodeTitle } from "./code-title";
 import { Pre } from "./pre";
 import { TableWrapper } from "./table-wrapper";
-
 export const MDX_COMPONENTS: MDXComponents = {
   Image: ({ alt, ...rest }: ImageProps) => {
     return (
