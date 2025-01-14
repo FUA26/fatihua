@@ -82,7 +82,7 @@ export default {
         foreground: "hsl(var(--foreground))",
         gray: colors.gray,
         primary: {
-          ...colors.red,
+          ...colors.orange,
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
         },

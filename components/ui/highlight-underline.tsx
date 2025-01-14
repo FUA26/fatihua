@@ -23,6 +23,7 @@ export function HighlightUnderline({
         "bg-gradient-to-r bg-left-bottom bg-no-repeat",
         "transition-[background-size] duration-[var(--duration,300ms)]",
         "from-primary-200 to-primary-100",
+        "dark:from-primary-700 dark:to-primary-600",
         active
           ? "bg-[length:100%_50%] hover:bg-[length:100%_100%]"
           : "bg-[length:0px_50%] hover:bg-[length:100%_50%]",

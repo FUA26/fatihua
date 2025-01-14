@@ -3,13 +3,16 @@ import { Button } from "../ui/button";
 
 import Link from "next/link";
 import { allCoreContent, sortPosts } from "pliny/utils/contentlayer";
-import { allProjects } from "contentlayer/generated";
+import { allProjects, type Projects } from "contentlayer/generated";
 import ProjectCard from "../common/projectCard";
+import type { CoreContent } from "@/types/data";
 
-function FeaturedPost() {
-  // const projects = project.getPages();
-  const sortedPosts = sortPosts(allProjects);
-  const posts = allCoreContent(sortedPosts);
+interface FeaturedProjectSectionProps {
+  initialDisplayProjects: CoreContent<Projects>[];
+}
+
+
+function FeaturedPost({initialDisplayProjects}:FeaturedProjectSectionProps) {
 
   return (
     <>
@@ -20,7 +23,7 @@ function FeaturedPost() {
         Discover a handpicked showcase of my top projects, illustrating my tech
         expertise and passion.
       </p>
-      {posts.map((post, i) => {
+      {initialDisplayProjects.map((post, i) => {
         return <ProjectCard key={i} post={post} />;
       })}
       <div className=" text-center">

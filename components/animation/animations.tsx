@@ -138,7 +138,7 @@ function LaunchAppWindow(
       </div>
       <div className="p-4 text-sm flex flex-col items-center">
         <span className=" text-2xl">🎉</span>
-        <h1 className=" text-xl lg:text-2xl font-semibold">The Magic Happens!</h1>
+        <h1 className="font-semibold">The Magic Happens!</h1>
       </div>
     </div>
   );

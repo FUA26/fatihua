@@ -1,14 +1,16 @@
 import React from "react";
 import { Button } from "../ui/button";
-
 import Link from "next/link";
-import { allBlogs } from "contentlayer/generated";
 import BlogCard from "../common/blogCard";
-import { sortPosts } from "@/lib/mdx";
-import { allCoreContent } from "@/lib/contentlayer";
+import { type CoreContent } from "@/types/data";
+import type { Blog } from "@/.contentlayer/generated";
 
-function FeaturedBlogSection() {
-  const initialDisplayPosts = allCoreContent(sortPosts(allBlogs)).slice(0, 6);
+
+interface FeaturedBlogSectionProps {
+  initialDisplayBlogs: CoreContent<Blog>[];
+}
+
+function FeaturedBlog({ initialDisplayBlogs }: FeaturedBlogSectionProps) {
   return (
     <>
       <h2 className="py-4 text-4xl font-bold text-foreground">
@@ -19,11 +21,11 @@ function FeaturedBlogSection() {
         that I share.
       </p>
       <div className="mt-4 grid grid-cols-1 gap-4 p-0 md:grid-cols-2 lg:grid-cols-3 lg:p-6">
-        {initialDisplayPosts.map((post, i) => {
+        {initialDisplayBlogs.map((post, i) => {
           return <BlogCard post={post} key={i} />;
         })}
       </div>
-      <div className=" text-center">
+      <div className="text-center">
         <Link href="/blog">
           <Button variant="outline" className="my-6">
             Explore More Projects
@@ -34,4 +36,4 @@ function FeaturedBlogSection() {
   );
 }
 
-export default FeaturedBlogSection;
+export default FeaturedBlog;

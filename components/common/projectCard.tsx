@@ -8,7 +8,7 @@ export default function ProjectCard({ post }) {
   return (
     <li className="my-8 flex flex-col items-center space-x-0 space-y-4 md:flex-row md:space-x-8 md:space-y-0 lg:space-x-12 ">
       <Link
-        href={`/projects/${post.slug}`}
+        href={post.path}
         className="flex-end group flex h-72 w-full overflow-hidden rounded-lg bg-gray-100 px-8 pt-8 hover:shadow-lg md:w-1/2 md:px-12 md:pt-12 lg:w-2/3"
       >
         {post?.images && (
