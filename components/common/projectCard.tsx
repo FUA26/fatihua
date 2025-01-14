@@ -2,7 +2,8 @@ import Link from "next/link";
 import React from "react";
 
 import { Button } from "../ui/button";
-import { Image } from "../ui/image";
+import Image from "../ui/next-image";
+
 
 export default function ProjectCard({ post }) {
   return (

@@ -2,13 +2,13 @@ import React from "react";
 import { Button } from "../ui/button";
 
 import Link from "next/link";
-import { allCoreContent, sortPosts } from "pliny/utils/contentlayer";
-import { allProjects, type Projects } from "contentlayer/generated";
+
 import ProjectCard from "../common/projectCard";
 import type { CoreContent } from "@/types/data";
+import type { Project } from "@/.contentlayer/generated";
 
 interface FeaturedProjectSectionProps {
-  initialDisplayProjects: CoreContent<Projects>[];
+  initialDisplayProjects: CoreContent<Project>[];
 }
 
 
