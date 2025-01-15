@@ -24,7 +24,7 @@ const Image = (props: NextImageProps) => {
         loading={priority ? "eager" : "lazy"}
         quality={100}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        onLoadingComplete={() => setLoading(false)}
+        onLoad={() => setLoading(false)}
         {...rest}
       />
     </div>
