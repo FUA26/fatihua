@@ -16,13 +16,13 @@ export default async function Page() {
   return (
     <>
       <HeroSection />
-      <AboutHero/>
+      {/* <AboutHero/>
       
-      <SkillSection/>
+      <SkillSection/> */}
       <FeaturedPost initialDisplayProjects={initialDisplayProjects}/>
       <FeaturedBlogSection initialDisplayBlogs={initialDisplayBlogs} />
       
-      <MacSticker/>
+      {/* <MacSticker/> */}
     </>
   );
 }

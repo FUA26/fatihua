@@ -11,6 +11,7 @@ import sayHello from "@/components/header/say-hello";
 import { sayHelloFlag } from "@/config/env";
 import { SITE_METADATA } from "@/config/site-metadata";
 import { Container } from "@/components/ui/container";
+import { Footer } from "@/components/footer/footer-main";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -77,6 +78,7 @@ export default function RootLayout({
           <Container>
             <main className="px-2 md:px-6">{children}</main>
           </Container>
+          <Footer/>
         </ThemeProvider>
       </body>
     </html>

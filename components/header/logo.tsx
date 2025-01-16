@@ -18,7 +18,7 @@ export function Logo({ className }: { className?: string }) {
         className="h-8 w-8"
         loading="eager"
       />
-      <span className="font-semibold">{SITE_METADATA.headerTitle}</span>
+      {/* <span className="font-semibold">{SITE_METADATA.headerTitle}</span> */}
     </Link>
   );
 }

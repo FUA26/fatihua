@@ -21,11 +21,11 @@ import { remarkImgToJsx } from './lib/remark-img-to-jsx'
 import { extractTocHeadings } from './lib/remark-toc-headings'
 import { SITE_METADATA } from './config/site-metadata'
 
-let root = process.cwd()
-let isProduction = process.env.NODE_ENV === 'production'
+const root = process.cwd()
+const isProduction = process.env.NODE_ENV === 'production'
 
 // heroicon mini link
-let icon = fromHtmlIsomorphic(
+const icon = fromHtmlIsomorphic(
   `
     <span class="content-header-link">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 linkicon">
@@ -37,7 +37,7 @@ let icon = fromHtmlIsomorphic(
   { fragment: true }
 )
 
-let computedFields: ComputedFields = {
+const computedFields: ComputedFields = {
   readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
   slug: {
     type: 'string',
@@ -58,11 +58,11 @@ let computedFields: ComputedFields = {
  * Count the occurrences of all tags across blog posts and write to json file
  */
 function createTagCount(documents) {
-  let tagCount: Record<string, number> = {}
+  const tagCount: Record<string, number> = {}
   documents.forEach((file) => {
     if (file.tags && (!isProduction || file.draft !== true)) {
       file.tags.forEach((tag: string) => {
-        let formattedTag = slug(tag)
+        const formattedTag = slug(tag)
         if (formattedTag in tagCount) {
           tagCount[formattedTag] += 1
         } else {
@@ -76,7 +76,7 @@ function createTagCount(documents) {
 }
 
 function createSearchIndex(allBlogs) {
-  let searchDocsPath = SITE_METADATA.search.kbarConfigs.searchDocumentsPath
+  const searchDocsPath = SITE_METADATA.search.kbarConfigs.searchDocumentsPath
   if (searchDocsPath) {
     writeFileSync(
       `public/${path.basename(searchDocsPath)}`,
@@ -86,7 +86,7 @@ function createSearchIndex(allBlogs) {
   }
 }
 
-export let Blog = defineDocumentType(() => ({
+export const Blog = defineDocumentType(() => ({
   name: 'Blog',
   filePathPattern: 'blog/**/*.mdx',
   contentType: 'mdx',
@@ -121,7 +121,7 @@ export let Blog = defineDocumentType(() => ({
   },
 }))
 
-export let Snippet = defineDocumentType(() => ({
+export const Snippet = defineDocumentType(() => ({
   name: 'Snippet',
   filePathPattern: 'snippets/**/*.mdx',
   contentType: 'mdx',
@@ -158,7 +158,7 @@ export let Snippet = defineDocumentType(() => ({
   },
 }))
 
-export let Project = defineDocumentType(() => ({
+export const Project = defineDocumentType(() => ({
   name: 'Project',
   filePathPattern: 'project/**/*.mdx',
   contentType: 'mdx',
@@ -193,7 +193,7 @@ export let Project = defineDocumentType(() => ({
   },
 }))
 
-export let Author = defineDocumentType(() => ({
+export const Author = defineDocumentType(() => ({
   name: 'Author',
   filePathPattern: 'authors/**/*.mdx',
   contentType: 'mdx',
@@ -252,8 +252,8 @@ export default makeSource({
     ],
   },
   onSuccess: async (importData) => {
-    let { allBlogs, allSnippets, allProjects } = await importData()
-    let allPosts = [...allBlogs, ...allSnippets, ...allProjects]
+    const { allBlogs, allSnippets, allProjects } = await importData()
+    const allPosts = [...allBlogs, ...allSnippets, ...allProjects]
     createTagCount(allPosts)
     createSearchIndex(allPosts)
     console.log('✨ Content source generated successfully!')
