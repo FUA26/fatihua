@@ -13,7 +13,7 @@ export default function BlogPage() {
     <Container className="pt-4 lg:pt-12">
       <PageHeader
         title="All Project"
-        description="I like to write about stuff I'm into. You'll find a mix of web dev articles, tech news, and random thoughts from my life. Use the search below to filter by title."
+        description="Explore my project portfolio. Get an overview of the works I have undertaken and my capabilities in various fields. "
         className="border-b border-gray-200 dark:border-gray-700"
       >
         {/* <SearchArticles

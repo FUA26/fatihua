@@ -16,5 +16,5 @@ export const FOOTER_NAV_LINKS = [
 
 export const FOOTER_PERSONAL_STUFF = [
   { href: '/about', title: 'About' },
-  { href: '/static/resume.pdf', title: 'Resume' },
+  { href:"https://drive.google.com/file/d/10TjqcZvnFxkFKEFUIPyBsARzenuTkHge/view?usp=sharing", title: 'Resume' },
 ]

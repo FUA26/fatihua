@@ -41,6 +41,12 @@ export function PostBanner({ content, children }: LayoutProps) {
       <ScrollButtons />
       <article className="space-y-6 pt-6 lg:space-y-16">
         <div className="space-y-4">
+          <div className="space-y-4 pt-4 md:pt-10">
+            <Banner
+                banner={images?.[0] || SITE_METADATA.socialBanner}
+                className="lg:-mx-8 xl:-mx-36 2xl:-mx-52"
+            />
+          </div>
           <TagsList tags={tags} />
           <PostTitle>{title}</PostTitle>
           <dl>
@@ -55,12 +61,7 @@ export function PostBanner({ content, children }: LayoutProps) {
               /> */}
             </div>
           </dl>
-          <div className="space-y-4 pt-4 md:pt-10">
-            <Banner
-              banner={images?.[0] || SITE_METADATA.socialBanner}
-              className="lg:-mx-8 xl:-mx-36 2xl:-mx-52"
-            />
-          </div>
+
         </div>
         <div className="prose prose-lg max-w-none dark:prose-invert">
           {children}
