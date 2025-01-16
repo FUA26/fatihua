@@ -1,4 +1,3 @@
-
 import { BiLogoPostgresql } from "react-icons/bi";
 import { BsFillBootstrapFill } from "react-icons/bs";
 import {
@@ -35,15 +34,12 @@ import {
   SiTypescript,
   SiVite,
 } from "react-icons/si";
-import type { ReactNode } from "react";
 
-type stacksProps = {
-  [key: string]: ReactNode;
-};
+type StacksProps = Record<string, React.ReactNode>;
 
 const iconSize = "100%";
 
-export const STACKS: stacksProps = {
+export const STACKS: StacksProps = {
   PHP: <SiPhp size={iconSize} className="text-blue-500" />,
   HTML: <SiHtml5 size={iconSize} className="text-amber-600" />,
   CSS: <SiCss3 size={iconSize} className="text-blue-500" />,

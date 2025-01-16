@@ -1,17 +1,30 @@
-
+import SectionWorkList from "@/components/sections/worklist-section";
+import SkillSection from "@/components/sections/skill-section";
+import MacSticker from "@/components/sections/mac-sticker";
 import AboutHero from "@/components/sections/about-hero";
-import MacSticker from "@/components/sections/macSticker";
-import SkillSection from "@/components/sections/skillSection";
 import { Container } from "@/components/ui/container";
 
-export default async function Page() {
+export default function About() {
   return (
-    <>
-      <Container>
+    <Container>
+      <div className="flex flex-col justify-center pt-16">
         <AboutHero />
-        <SkillSection />
+        <div className="p-6">
+          <h2 className="py-4 text-4xl font-bold text-foreground">
+            Tech Stack.
+          </h2>
+
+          <SkillSection />
+        </div>
+        <div className="p-6">
+          <h2 className="py-4 text-4xl font-bold text-foreground">
+            Where I&apos;ve Worked.
+          </h2>
+
+          <SectionWorkList />
+        </div>
         <MacSticker />
-      </Container>
-    </>
+      </div>
+    </Container>
   );
 }

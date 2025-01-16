@@ -1,11 +1,12 @@
 import Image from "../ui/next-image";
 
-
 const AboutHero = () => {
   return (
     <div className="py-8">
       <p className=" px-6 text-3xl font-semibold">Hi! I am</p>
-      <p className=" px-6 text-4xl font-bold text-primary-500">Fatih Ulil Albab</p>
+      <p className=" px-6 text-4xl font-bold text-primary-500">
+        Fatih Ulil Albab
+      </p>
       <div className="flex flex-col md:flex-row ">
         <div className="md:basis-2/3 order-2 md:order-1 p-6 text-foreground ">
           <p className="text-base/relaxed text-foreground text-justify">
@@ -36,7 +37,7 @@ const AboutHero = () => {
           <div className="relative m-auto  aspect-[4/3] w-full ">
             <Image
               className="rounded-2xl"
-              src="/static/FUA-Profile-Main.webp"
+              src="/static/images/FUA-Profile-Main.webp"
               alt="Profile Image"
               fill
               priority={true}

@@ -2,7 +2,7 @@ export const fav = [
   {
     id: "tailwind",
     name: "I Love Tailwind",
-    image: "/static/icons/Tailwind.webp",
+    image: "/static/images/icons/Tailwind.webp",
     width: 80,
     height: 45,
     class: "top-[120px] left-[375px]",
@@ -10,7 +10,7 @@ export const fav = [
   {
     id: "nest",
     name: "My Favorite Backend Framework",
-    image: "/static/icons/Nest.webp",
+    image: "/static/images/icons/Nest.webp",
     width: 70,
     height: 70,
     class: "top-[350px] left-[235px]",
@@ -18,7 +18,7 @@ export const fav = [
   {
     id: "ts",
     name: "Still learn",
-    image: "/static/icons/Ts.webp",
+    image: "/static/images/icons/Ts.webp",
     width: 70,
     height: 70,
     class: "top-[55px] left-[75px]",
@@ -26,7 +26,7 @@ export const fav = [
   {
     id: "js",
     name: "My Favorite Language",
-    image: "/static/icons/Js.webp",
+    image: "/static/images/icons/Js.webp",
     width: 70,
     height: 70,
     class: "top-[15px] left-[215px]",
@@ -34,7 +34,7 @@ export const fav = [
   {
     id: "laravel",
     name: "First Love",
-    image: "/static/icons/Laravel.webp",
+    image: "/static/images/icons/Laravel.webp",
     width: 70,
     height: 70,
     class: "top-[185px] left-[185px]",
@@ -43,7 +43,7 @@ export const fav = [
   {
     id: "Docker",
     name: "Make Everything Simple",
-    image: "/static/icons/Docker.webp",
+    image: "/static/images/icons/Docker.webp",
     width: 70,
     height: 70,
     class: "top-[225px] left-[455px]",
@@ -51,7 +51,7 @@ export const fav = [
   {
     id: "vite",
     name: "Basic and Fast",
-    image: "/static/icons/Vite.webp",
+    image: "/static/images/icons/Vite.webp",
     width: 70,
     height: 70,
     class: "top-[35px] left-[545px]",
@@ -59,7 +59,7 @@ export const fav = [
   {
     id: "next",
     name: "Most Powefull Today",
-    image: "/static/icons/NextJs.webp",
+    image: "/static/images/icons/NextJs.webp",
     width: 70,
     height: 70,
     class: "top-[335px] left-[515px]",
@@ -67,7 +67,7 @@ export const fav = [
   {
     id: "rq",
     name: "Easy to Fetch Data",
-    image: "/static/icons/ReactQuery.webp",
+    image: "/static/images/icons/ReactQuery.webp",
     width: 70,
     height: 70,
     class: "top-[285px] left-[65px]",

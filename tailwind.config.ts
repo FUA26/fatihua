@@ -13,6 +13,7 @@ export default {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     './layouts/**/*.{js,ts,tsx}',
+    './config/**/*.{js,ts,tsx}',
   ],
   darkMode: 'class',
   theme: {

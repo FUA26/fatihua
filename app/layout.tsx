@@ -8,7 +8,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { Header } from "@/components/header/main-header";
 import sayHello from "@/components/header/say-hello";
-import { sayHelloFlag } from "@/constants/env";
+import { sayHelloFlag } from "@/config/env";
 import { SITE_METADATA } from "@/config/site-metadata";
 import { Container } from "@/components/ui/container";
 

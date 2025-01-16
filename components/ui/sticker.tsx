@@ -1,7 +1,6 @@
 import React, { type FC } from "react";
 import Image from "./next-image";
 
-
 interface StickerProps {
   height: number;
   width: number;
