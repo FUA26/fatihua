@@ -4,7 +4,7 @@ import Link from "next/link";
 import BlogCard from "../common/blogCard";
 import { type CoreContent } from "@/types/data";
 import type { Blog } from "@/.contentlayer/generated";
-
+import { PostCardGridView } from "../blog/post-card-grid-view";
 
 interface FeaturedBlogSectionProps {
   initialDisplayBlogs: CoreContent<Blog>[];
@@ -22,7 +22,8 @@ function FeaturedBlog({ initialDisplayBlogs }: FeaturedBlogSectionProps) {
       </p>
       <div className="mt-4 grid grid-cols-1 gap-4 p-0 md:grid-cols-2 lg:grid-cols-3 lg:p-6">
         {initialDisplayBlogs.map((post, i) => {
-          return <BlogCard post={post} key={i} />;
+          // return <BlogCard post={post} key={i} />;
+          return <PostCardGridView key={post.path} post={post} />;
         })}
       </div>
       <div className="text-center">

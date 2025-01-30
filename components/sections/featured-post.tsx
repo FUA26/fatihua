@@ -6,14 +6,13 @@ import Link from "next/link";
 import ProjectCard from "../common/projectCard";
 import type { CoreContent } from "@/types/data";
 import type { Project } from "@/.contentlayer/generated";
+import { PostCardGridView } from "../blog/post-card-grid-view";
 
 interface FeaturedProjectSectionProps {
   initialDisplayProjects: CoreContent<Project>[];
 }
 
-
-function FeaturedPost({initialDisplayProjects}:FeaturedProjectSectionProps) {
-
+function FeaturedPost({ initialDisplayProjects }: FeaturedProjectSectionProps) {
   return (
     <>
       <h2 className="py-4 text-4xl font-bold text-foreground">

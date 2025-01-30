@@ -7,7 +7,7 @@ import { Banner } from "@/components/blog/banner";
 // import { Comments } from "@/components/blog/comments";
 import { PostNav } from "@/components/blog/post-nav";
 import { PostTitle } from "@/components/blog/post-title";
-import {formatDate, getTimeAgo} from "@/lib/utils"
+import { formatDate, getTimeAgo } from "@/lib/utils";
 // import { Reactions } from "@/components/blog/reactions";
 import { ScrollButtons } from "@/components/blog/scroll-buttons";
 // import { SocialShare } from "@/components/blog/social-share";
@@ -42,7 +42,7 @@ export function PostLayout({ content, next, prev, children }: LayoutProps) {
     type,
   } = content;
   const postUrl = `${SITE_METADATA.siteUrl}/${type.toLowerCase()}/${slug}`;
-  console.log(content)
+
   return (
     <Container className=" lg:pt-6">
       <ScrollButtons />
@@ -56,24 +56,21 @@ export function PostLayout({ content, next, prev, children }: LayoutProps) {
           <p className=" my-2 italic text-foreground/70">{summary}</p>
           <div className="flex gap-2 my-1 justify-between font-medium text-foreground mt-4">
             <div className="flex items-center gap-1 ">
-              <CalendarIcon />{" "}
-              <span>{formatDate(date)}</span>
+              <CalendarIcon /> <span>{formatDate(date)}</span>
               {lastmod && (
-                  <time
-                      dateTime={date}
-                      className="ml-1.5 hidden items-center justify-center md:ml-2 md:flex"
-                  >
-                    (<span>updated</span>
-                    <span className="ml-1.5">{getTimeAgo(lastmod)}</span>)
-                  </time>
+                <time
+                  dateTime={date}
+                  className="ml-1.5 hidden items-center justify-center md:ml-2 md:flex"
+                >
+                  (<span>updated</span>
+                  <span className="ml-1.5">{getTimeAgo(lastmod)}</span>)
+                </time>
               )}
             </div>
             <div className="  flex items-center gap-1">
               <TimerIcon /> {readingTime.text}
             </div>
           </div>
-
-
         </div>
         <GradientDivider className="mb-2 mt-1" />
         <div className="grid grid-cols-1 gap-12 pb-10 pt-8 lg:grid-cols-12 lg:pt-10">
